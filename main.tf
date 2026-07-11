@@ -73,6 +73,12 @@ resource "argocd_application" "this" {
     }
 
     sync_policy {
+      dynamic "managed_namespace_metadata" {
+        for_each = length(var.namespace_labels) > 0 ? [var.namespace_labels] : []
+        content {
+          labels = managed_namespace_metadata.value
+        }
+      }
       dynamic "automated" {
         for_each = toset(var.app_autosync == { "allow_empty" = tobool(null), "prune" = tobool(null), "self_heal" = tobool(null) } ? [] : [var.app_autosync])
         content {
