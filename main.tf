@@ -113,7 +113,7 @@ resource "argocd_application" "this" {
   ]
 }
 
-resource "kubernetes_secret" "git_creds" {
+resource "kubernetes_secret_v1" "git_creds" {
   metadata {
     name      = "git-creds"
     namespace = "processing"
@@ -129,7 +129,7 @@ resource "kubernetes_secret" "git_creds" {
   ]
 }
 
-resource "kubernetes_secret" "minio_secret" {
+resource "kubernetes_secret_v1" "minio_secret" {
   metadata {
     name      = "minio-secret"
     namespace = "processing"
