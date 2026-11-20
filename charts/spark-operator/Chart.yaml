@@ -5,4 +5,4 @@ version: "0"
 dependencies:
 - name: spark-operator
   repository: https://kubeflow.github.io/spark-operator
-  version: "2.1.0"
+  version: "2.6.0"

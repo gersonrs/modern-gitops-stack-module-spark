@@ -7,23 +7,25 @@
 
 The following requirements are needed by this module:
 
-- [[requirement_argocd]] <<requirement_argocd,argocd>> (>= 6)
+- [[requirement_terraform]] <<requirement_terraform,terraform>> (>= 1.9.0)
 
-- [[requirement_null]] <<requirement_null,null>> (>= 3)
+- [[requirement_argocd]] <<requirement_argocd,argocd>> (~> 7.18)
 
-- [[requirement_utils]] <<requirement_utils,utils>> (>= 1)
+- [[requirement_null]] <<requirement_null,null>> (~> 3.3)
+
+- [[requirement_utils]] <<requirement_utils,utils>> (~> 2.7)
 
 === Providers
 
 The following providers are used by this module:
 
-- [[provider_utils]] <<provider_utils,utils>> (>= 1)
+- [[provider_null]] <<provider_null,null>> (3.3.2)
 
-- [[provider_argocd]] <<provider_argocd,argocd>> (>= 6)
+- [[provider_argocd]] <<provider_argocd,argocd>> (7.18.0)
 
-- [[provider_kubernetes]] <<provider_kubernetes,kubernetes>>
+- [[provider_utils]] <<provider_utils,utils>> (2.7.0)
 
-- [[provider_null]] <<provider_null,null>> (>= 3)
+- [[provider_kubernetes]] <<provider_kubernetes,kubernetes>> (3.5.0)
 
 === Resources
 
@@ -166,6 +168,20 @@ Type: `map(string)`
 
 Default: `{}`
 
+==== [[input_namespace_labels]] <<input_namespace_labels,namespace_labels>>
+
+Description: Labels to apply to the destination namespace managed by Argo CD (requires CreateNamespace=true).
+
+Type: `map(string)`
+
+Default:
+[source,json]
+----
+{
+  "istio.io/dataplane-mode": "ambient"
+}
+----
+
 ==== [[input_path_known_hosts]] <<input_path_known_hosts,path_known_hosts>>
 
 Description: path known_hosts
@@ -202,9 +218,10 @@ Description: ID to pass other modules in order to refer to this module as a depe
 [cols="a,a",options="header,autowidth"]
 |===
 |Name |Version
-|[[requirement_argocd]] <<requirement_argocd,argocd>> |>= 6
-|[[requirement_null]] <<requirement_null,null>> |>= 3
-|[[requirement_utils]] <<requirement_utils,utils>> |>= 1
+|[[requirement_terraform]] <<requirement_terraform,terraform>> |>= 1.9.0
+|[[requirement_argocd]] <<requirement_argocd,argocd>> |~> 7.18
+|[[requirement_null]] <<requirement_null,null>> |~> 3.3
+|[[requirement_utils]] <<requirement_utils,utils>> |~> 2.7
 |===
 
 = Providers
@@ -212,10 +229,10 @@ Description: ID to pass other modules in order to refer to this module as a depe
 [cols="a,a",options="header,autowidth"]
 |===
 |Name |Version
-|[[provider_argocd]] <<provider_argocd,argocd>> |>= 6
-|[[provider_utils]] <<provider_utils,utils>> |>= 1
-|[[provider_kubernetes]] <<provider_kubernetes,kubernetes>> |n/a
-|[[provider_null]] <<provider_null,null>> |>= 3
+|[[provider_null]] <<provider_null,null>> |3.3.2
+|[[provider_argocd]] <<provider_argocd,argocd>> |7.18.0
+|[[provider_utils]] <<provider_utils,utils>> |2.7.0
+|[[provider_kubernetes]] <<provider_kubernetes,kubernetes>> |3.5.0
 |===
 
 = Resources
@@ -327,6 +344,20 @@ object({
 |IDs of the other modules on which this module depends on.
 |`map(string)`
 |`{}`
+|no
+
+|[[input_namespace_labels]] <<input_namespace_labels,namespace_labels>>
+|Labels to apply to the destination namespace managed by Argo CD (requires CreateNamespace=true).
+|`map(string)`
+|
+
+[source]
+----
+{
+  "istio.io/dataplane-mode": "ambient"
+}
+----
+
 |no
 
 |[[input_path_known_hosts]] <<input_path_known_hosts,path_known_hosts>>
