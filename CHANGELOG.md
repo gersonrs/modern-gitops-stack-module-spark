@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/gersonrs/modern-gitops-stack-module-spark/compare/v2.0.0...v2.0.1) (2026-11-20)
+
+
+### 🔥 Bug Fixes
+
+* use kubernetes_secret_v1 resource ([#19](https://github.com/gersonrs/modern-gitops-stack-module-spark/issues/19)) ([1e6d9b9](https://github.com/gersonrs/modern-gitops-stack-module-spark/commit/1e6d9b90c2825c59cd8fe1b25e49e6240b1ab72d))
+
 ## [2.0.0](https://github.com/gersonrs/modern-gitops-stack-module-spark/compare/v1.5.1...v2.0.0) (2026-11-20)
 
 
