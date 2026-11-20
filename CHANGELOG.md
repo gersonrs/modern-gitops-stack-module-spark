@@ -1,5 +1,22 @@
 # Changelog
 
+## [2.0.0](https://github.com/gersonrs/modern-gitops-stack-module-spark/compare/v1.5.1...v2.0.0) (2026-11-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* provider major bumps and a stricter Terraform baseline; consumers must run `terraform init -upgrade`.
+
+### 🚀 New Features
+
+* add namespace_labels variable to all modules ([df37be6](https://github.com/gersonrs/modern-gitops-stack-module-spark/commit/df37be64a922c4829b294db6a131b42a0d1c1a86))
+* upgrade charts, providers and Terraform baseline ([#16](https://github.com/gersonrs/modern-gitops-stack-module-spark/issues/16)) ([1548fbe](https://github.com/gersonrs/modern-gitops-stack-module-spark/commit/1548fbe2c75fdd9f0c8bf9a05ac98f1459daac6e))
+
+
+### 📦 CI Improvements
+
+* run release-please with GITHUB_TOKEN ([#17](https://github.com/gersonrs/modern-gitops-stack-module-spark/issues/17)) ([bacc4c0](https://github.com/gersonrs/modern-gitops-stack-module-spark/commit/bacc4c0f61cf90a51611eeba26042f9405d8a136))
+
 ## [1.5.1](https://github.com/GersonRS/modern-gitops-stack-module-spark/compare/v1.5.0...v1.5.1) (2025-02-08)
 
 
