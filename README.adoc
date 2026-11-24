@@ -1,6 +1,54 @@
 = modern-gitops-stack-module-spark
 // Document attributes to replace along the document
+:spark-operator-chart-version: 2.6.0
+:original-repo-url: https://github.com/kubeflow/spark-operator
 
+A https://modern-gitops-stack.io[Modern GitOps Stack] module to deploy the Spark Operator, which runs SparkApplications on Kubernetes.
+
+The spark-operator chart used by this module is shipped in this repository as well, in order to avoid any unwanted behaviors caused by unsupported versions.
+
+[cols="1,1,1",options="autowidth,header"]
+|===
+|Current Chart Version |Original Repository |Default Values
+|*2.6.0* |https://github.com/kubeflow/spark-operator/tree/main/charts/spark-operator-chart[spark-operator] |https://artifacthub.io/packages/helm/spark-operator/spark-operator/2.6.0?modal=values[`values.yaml`]
+|===
+
+== Usage
+
+This module can be declared by adding the following block to your Terraform configuration:
+
+[source,terraform]
+----
+module "spark" {
+  source = "git::https://github.com/GersonRS/modern-gitops-stack-module-spark.git?ref=<RELEASE>"
+
+  cluster_name   = local.cluster_name
+  base_domain    = local.base_domain
+  subdomain      = local.subdomain
+  cluster_issuer = local.cluster_issuer
+  app_autosync   = local.app_autosync
+  storage        = { ... }  # MinIO bucket
+
+  dependency_ids = {
+    minio = module.minio.id
+    istio = module.istio.id
+  }
+}
+----
+
+The application is deployed to the `processing` namespace.
+
+== Technical Reference
+
+=== Dependencies
+
+==== `module.minio.id`
+
+Spark reads and writes the warehouse in MinIO.
+
+==== `module.istio.id`
+
+The Spark UI is exposed through the Istio gateway.
 
 // BEGIN_TF_DOCS
 === Requirements
