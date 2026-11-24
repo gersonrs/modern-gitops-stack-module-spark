@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.2](https://github.com/gersonrs/modern-gitops-stack-module-spark/compare/v2.0.1...v2.0.2) (2026-11-24)
+
+
+### 📚 Documentation
+
+* add usage and dependencies to the module documentation ([#21](https://github.com/gersonrs/modern-gitops-stack-module-spark/issues/21)) ([f181f9c](https://github.com/gersonrs/modern-gitops-stack-module-spark/commit/f181f9c626d9971610147c5e92b0289b73b88f42))
+
 ## [2.0.1](https://github.com/gersonrs/modern-gitops-stack-module-spark/compare/v2.0.0...v2.0.1) (2026-11-20)
 
 
